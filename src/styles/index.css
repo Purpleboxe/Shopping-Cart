@@ -1,7 +1,5 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  width: 100vw;
-  height: 100vh;
   --black: #2b2d42;
 }
 
@@ -9,6 +7,8 @@ body {
   background-color: #ffffff;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 header {
@@ -31,4 +31,14 @@ header h1 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
 }

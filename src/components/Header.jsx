@@ -13,12 +13,12 @@ function Header() {
         </Link>
       </div>
       <div className="headerLinks">
-        <div className="link">
-          <Link to="/">Home</Link>
-        </div>
-        <div className="link">
-          <Link to="/shop">Shop</Link>
-        </div>
+        <Link to="/">
+          <div className="link">Home</div>
+        </Link>
+        <Link to="/shop">
+          <div className="link">Shop</div>
+        </Link>
       </div>
     </header>
   );

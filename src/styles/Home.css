@@ -2,10 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-size: 1.5rem;
   color: var(--black);
-  background-color: #f6f6f6;
-  padding: 50px;
 }
 
 .description {
@@ -13,4 +10,93 @@
   width: 50%;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  background-color: #f6f6f6;
+  width: 100%;
+  padding: 50px;
+}
+
+.promotion {
+  margin: 50px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  background-color: #e44d5f;
+}
+
+.promotion p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.about-us {
+  text-align: center;
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  margin: 50px 0;
+  font-weight: bold;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.newsletter input {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.subscribe-btn {
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #e44d5f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subscribe-btn:hover {
+  background-color: #d5394c;
+}
+
+.reviews {
+  text-align: center;
+}
+
+.reviews-header {
+  margin-bottom: 10px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.review-item {
+  max-width: 300px;
+  min-height: 300px;
+  border: 2px solid var(--black);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.customer-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.review-text {
+  font-size: 1.2rem;
 }

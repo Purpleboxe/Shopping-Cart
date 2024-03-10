@@ -1,5 +1,75 @@
 .shop {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   color: var(--black);
+}
+
+.shop-header {
+  text-align: center;
+  background-color: #f6f6f6;
+  font-weight: bold;
+  width: 100%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 80%;
+  gap: 50px;
+  align-items: flex-start;
+  margin: 50px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  min-height: 500px;
+  padding: 20px;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px rgb(220, 220, 220);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-image {
+  object-fit: contain;
+  width: 100%;
+  height: 300px;
+}
+
+.rating {
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--black);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rate {
+  color: #ffc300;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: auto;
 }

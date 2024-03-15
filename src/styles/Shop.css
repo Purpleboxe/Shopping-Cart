@@ -6,13 +6,6 @@
   color: var(--black);
 }
 
-.shop-header {
-  text-align: center;
-  background-color: #f6f6f6;
-  font-weight: bold;
-  width: 100%;
-}
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -28,7 +21,7 @@
   font-size: 1.2rem;
   border: 2px solid gray;
   border-radius: 5px;
-  min-height: 500px;
+  min-height: 550px;
   padding: 20px;
   transition: 0.1s ease-in-out;
   cursor: pointer;
@@ -72,4 +65,16 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.addToCart button {
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.addToCart button:disabled {
+  background-color: #ececec;
 }

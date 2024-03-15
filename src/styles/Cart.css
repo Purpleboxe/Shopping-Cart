@@ -1,0 +1,45 @@
+.cart {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--black);
+}
+
+.cart-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 50vw;
+  min-height: 60vh;
+}
+
+.cart-count {
+  position: fixed;
+  margin-left: 20px;
+  margin-top: -20px;
+  background-color: #e44d5f;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 15px;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.message {
+  min-height: 70vh;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px solid gray;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  color: var(--black);
+  padding: 20px;
+  gap: 50px;
+}

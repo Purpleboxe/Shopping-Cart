@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import tagSvg from "../assets/tag.svg";
+import cartSvg from "../assets/cart.svg";
+import PropTypes from "prop-types";
 
-function Header() {
+function Header({ cartItems }) {
   return (
     <header>
       <div className="headerIcon">
@@ -19,9 +21,21 @@ function Header() {
         <Link to="/shop">
           <div className="link">Shop</div>
         </Link>
+        <Link to="/cart">
+          <div className="link">
+            {cartItems.length > 0 && (
+              <div className="cart-count">{cartItems.length}</div>
+            )}
+            <img src={cartSvg} alt="cart" />
+          </div>
+        </Link>
       </div>
     </header>
   );
 }
+
+Header.propTypes = {
+  cartItems: PropTypes.array.isRequired,
+};
 
 export default Header;

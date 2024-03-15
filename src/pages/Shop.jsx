@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-
+import PropTypes from "prop-types";
 import "../styles/Shop.css";
 
-function Shop() {
+function Shop({ cartItems, setCartItems }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -10,13 +10,19 @@ function Shop() {
       .then((res) => res.json())
       .then((json) => {
         setProducts(json);
-        console.log(json);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
       });
   }, []);
 
+  const addToCart = (product) => {
+    setCartItems([...cartItems, { ...product, quantity: 1 }]);
+  };
+
   return (
     <div className="shop">
-      <div className="shop-header">
+      <div className="page-header">
         <h1>Store</h1>
         <p>Find what you need with convenience!</p>
       </div>
@@ -34,7 +40,18 @@ function Shop() {
                 Rating: <div className="rate">{product.rating.rate}</div>
                 <i>({product.rating.count})</i>
               </div>
-              <div className="price">${product.price}</div>
+              <div className="price">${product.price.toFixed(2)}</div>
+              <div className="addToCart">
+                {cartItems.find((item) => item.id === product.id) ? (
+                  <button className="btn" disabled>
+                    Added to cart
+                  </button>
+                ) : (
+                  <button className="btn" onClick={() => addToCart(product)}>
+                    Add to cart
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -42,5 +59,10 @@ function Shop() {
     </div>
   );
 }
+
+Shop.propTypes = {
+  cartItems: PropTypes.array.isRequired,
+  setCartItems: PropTypes.func.isRequired,
+};
 
 export default Shop;

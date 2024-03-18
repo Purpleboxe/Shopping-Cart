@@ -1,45 +1,123 @@
 .cart {
   display: flex;
-  text-align: center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   color: var(--black);
 }
 
 .cart-body {
-  display: flex;
-  flex-direction: column;
   max-width: 50vw;
-  min-height: 60vh;
+  min-height: 70vh;
+}
+
+.cart-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  user-select: none;
 }
 
 .cart-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   margin-left: 20px;
   margin-top: -20px;
   background-color: #e44d5f;
   color: white;
-  padding: 2px 8px;
-  border-radius: 15px;
-  font-size: 1rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 14px;
+  text-align: center;
   pointer-events: none;
 }
 
-.message {
-  min-height: 70vh;
-}
-
 .cart-items {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   border-radius: 5px;
   border: 2px solid gray;
+  box-shadow: 5px 5px 10px whitesmoke;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 .cart-item {
   display: flex;
   flex-direction: row;
-  color: var(--black);
+  justify-content: space-between;
   padding: 20px;
+  border-bottom: 2px solid lightgray;
   gap: 50px;
+}
+
+.cart-item img {
+  object-fit: contain;
+  width: 5vw;
+}
+
+.cart-description {
+  display: flex;
+  flex-direction: column;
+  min-width: 40vw;
+}
+
+.cart-item-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.cart-item-row h2 {
+  max-width: 30vw;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-btn {
+  margin: 20px 0;
+}
+
+.trash {
+  border: none;
+  background-color: transparent;
+  height: 25px;
+  width: 25px;
+  font-size: 1.2rem;
+  color: gray;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.trash:hover {
+  color: var(--black);
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: rgb(240, 240, 240);
+  font-size: 1.5rem;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.quantity button:hover {
+  background-color: rgb(230, 230, 230);
 }

@@ -21,7 +21,10 @@ function App() {
           path="/shop"
           element={<Shop cartItems={cartItems} setCartItems={setCartItems} />}
         />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="/cart"
+          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

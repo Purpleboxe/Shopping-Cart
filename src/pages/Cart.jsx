@@ -3,19 +3,57 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import "../styles/Cart.css";
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, setCartItems }) {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   const calculateTotalPrice = () => {
     let total = 0;
-    for (let item of cartItems) {
-      total += item.price * item.quantity;
+    for (let product of cartItems) {
+      total += product.price * product.quantity;
     }
     setTotalPrice(total);
   };
 
+  const calculateTotalItems = () => {
+    let total = 0;
+    for (let product of cartItems) {
+      total += product.quantity;
+    }
+    setTotalItems(total);
+  };
+
+  const removeFromCart = (id) => {
+    const updatedItems = cartItems.filter((product) => product.id !== id);
+    setCartItems(updatedItems);
+  };
+
+  const quantityChange = (id, type) => {
+    const updatedItems = cartItems.map((product) => {
+      if (product.id === id) {
+        let newQuantity =
+          type === "increment" ? product.quantity + 1 : product.quantity - 1;
+        if (newQuantity > 10) {
+          newQuantity = 10;
+        }
+        if (newQuantity <= 0) {
+          return null;
+        } else {
+          return {
+            ...product,
+            quantity: newQuantity,
+          };
+        }
+      }
+      return product;
+    });
+
+    setCartItems(updatedItems.filter((product) => product !== null));
+  };
+
   useEffect(() => {
     calculateTotalPrice();
+    calculateTotalItems();
   }, [cartItems]);
 
   return (
@@ -26,28 +64,60 @@ function Cart({ cartItems }) {
       </div>
       {cartItems.length > 0 ? (
         <div className="cart-body">
-          <h2>
-            {cartItems.length} {cartItems.length === 1 ? "item" : "items"}
-          </h2>
-          <h3>Total price: ${totalPrice.toFixed(2)}</h3>
+          <div className="cart-info">
+            <h2>
+              {totalItems} {totalItems === 1 ? "item" : "items"} | Total price:
+              ${totalPrice.toFixed(2)}
+            </h2>
+          </div>
           <div className="cart-items">
-            {cartItems.map((item) => (
-              <div className="cart-item" key={item.id}>
-                <div className="cart-item-left">
-                  <h2>{item.title}</h2>
-                </div>
-                <div className="cart-item-right">
-                  <p>Price: ${item.price}</p>
-                  <p>Quantity: {item.quantity}</p>
+            {cartItems.map((product) => (
+              <div className="cart-item" key={product.id}>
+                <img src={product.image} alt={product.title} />
+                <div className="cart-description">
+                  <div className="cart-item-row">
+                    <h2>{product.title}</h2>
+                    <button
+                      className="trash"
+                      onClick={() => removeFromCart(product.id)}
+                    >
+                      <i className="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
+                  <div className="cart-item-row">
+                    <p>${(product.price * product.quantity).toFixed(2)}</p>
+                    <div className="quantity">
+                      <button
+                        value="-"
+                        onClick={() => quantityChange(product.id, "decrement")}
+                      >
+                        -
+                      </button>
+                      {product.quantity}
+                      <button
+                        value="+"
+                        onClick={() => quantityChange(product.id, "increment")}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+          <div className="order">
+            <button className="btn cart-btn">
+              Continue to checkout <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
       ) : (
-        <div className="message">
-          <h1>Your cart is empty...</h1>
-          <h2>Add some items to your cart!</h2>
+        <div className="cart-body">
+          <div className="message">
+            <h1>Your cart is empty...</h1>
+            <h2>Add some items to your cart!</h2>
+          </div>
         </div>
       )}
     </div>
@@ -56,6 +126,7 @@ function Cart({ cartItems }) {
 
 Cart.propTypes = {
   cartItems: PropTypes.array.isRequired,
+  setCartItems: PropTypes.func.isRequired,
 };
 
 export default Cart;

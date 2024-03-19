@@ -14,7 +14,7 @@ function Home() {
             pointless junk! Shop with us now to discover more about these
             useless knick-knacks.
           </div>
-          <Link to="/shop" className="btn">
+          <Link to="/Shopping-Cart/shop" className="btn">
             Start shopping <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>

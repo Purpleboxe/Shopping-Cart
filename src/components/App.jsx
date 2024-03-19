@@ -16,13 +16,13 @@ function App() {
     <>
       <Header cartItems={cartItems} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Shopping-Cart/" element={<Home />} />
         <Route
-          path="/shop"
+          path="/Shopping-Cart/shop"
           element={<Shop cartItems={cartItems} setCartItems={setCartItems} />}
         />
         <Route
-          path="/cart"
+          path="/Shopping-Cart/cart"
           element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
         />
         <Route path="*" element={<Error />} />

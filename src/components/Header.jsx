@@ -7,7 +7,7 @@ function Header({ cartItems }) {
   return (
     <header>
       <div className="headerIcon">
-        <Link to="/">
+        <Link to="/Shopping-Cart/">
           <h1>
             <img src={tagSvg} alt="tag" />
             ParodyMart
@@ -15,13 +15,13 @@ function Header({ cartItems }) {
         </Link>
       </div>
       <div className="headerLinks">
-        <Link to="/">
+        <Link to="/Shopping-Cart/">
           <div className="link">Home</div>
         </Link>
-        <Link to="/shop">
+        <Link to="/Shopping-Cart/shop">
           <div className="link">Shop</div>
         </Link>
-        <Link to="/cart">
+        <Link to="/Shopping-Cart/cart">
           <div className="link">
             {cartItems.length > 0 && (
               <div className="cart-count">{cartItems.length}</div>

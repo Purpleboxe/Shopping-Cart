@@ -17,6 +17,7 @@
   align-items: center;
   flex-direction: column;
   font-size: 1.5rem;
+  text-align: center;
   background-color: #f6f6f6;
   width: 100%;
   padding: 50px;
@@ -50,6 +51,11 @@
   font-size: 1.2rem;
 }
 
+.newsletter div {
+  display: flex;
+  gap: 20px;
+}
+
 .newsletter input {
   padding: 10px;
   font-size: 1rem;
@@ -59,7 +65,7 @@
   padding: 12px;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #e44d5f;
+  background-color: #df263b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -67,7 +73,7 @@
 }
 
 .subscribe-btn:hover {
-  background-color: #d5394c;
+  background-color: #cb2337;
 }
 
 .reviews {
@@ -99,4 +105,17 @@
 
 .review-text {
   font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .newsletter {
+    flex-direction: column;
+  }
+
+  .review-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }

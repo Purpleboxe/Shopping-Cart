@@ -70,10 +70,12 @@ function Home() {
 
         <div className="newsletter">
           <p>Get the latest and best offers.</p>
-          <input type="email" placeholder="Email Address" />
-          <button type="submit" className="subscribe-btn">
-            Subscribe
-          </button>
+          <div>
+            <input type="email" placeholder="Email Address" />
+            <button type="submit" className="subscribe-btn">
+              Subscribe
+            </button>
+          </div>
         </div>
       </section>
     </>

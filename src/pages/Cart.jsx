@@ -1,11 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import Confetti from "../components/Confetti.js";
 import "../styles/Cart.css";
 
 function Cart({ cartItems, setCartItems }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+
+  const overlay = document.querySelector(".overlay");
+  const purchasedPopup = document.querySelector(".purchased");
 
   const calculateTotalPrice = () => {
     let total = 0;
@@ -49,6 +53,17 @@ function Cart({ cartItems, setCartItems }) {
     });
 
     setCartItems(updatedItems.filter((product) => product !== null));
+  };
+
+  const purchased = () => {
+    overlay.classList.add("active");
+    purchasedPopup.classList.add("active");
+    Confetti();
+  };
+
+  const close = () => {
+    overlay.classList.remove("active");
+    purchasedPopup.classList.remove("active");
   };
 
   useEffect(() => {
@@ -107,7 +122,7 @@ function Cart({ cartItems, setCartItems }) {
             ))}
           </div>
           <div className="order">
-            <button className="btn cart-btn">
+            <button className="btn cart-btn" onClick={purchased}>
               Continue to checkout <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
@@ -120,6 +135,16 @@ function Cart({ cartItems, setCartItems }) {
           </div>
         </div>
       )}
+      <div className="popup">
+        <div className="purchased">
+          <h2>Congratulations on your purchase!</h2>
+          <button className="btn" onClick={close}>
+            Close
+          </button>
+        </div>
+        <div className="overlay" onClick={close}></div>
+        <div className="canvas-confetti"></div>
+      </div>
     </div>
   );
 }
